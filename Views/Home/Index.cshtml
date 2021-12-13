@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model Chef
+<div class="d-flex justify-content-evenly">
+    <div class="col-6">
+        Chefs | <a href="/dishes">Dishes</a>
+    </div>
+    <div class="col-6">
+        <a href="/new_chef">Add a Chef</a>
+    </div>
+</div>
+<div class="text-center">
+    <h1>Check out our Roster of Chefs!</h1>
+    <br>
+    <table class="table table-striped">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th># of Dishes</th>
+        </tr>
+    @{
+        foreach(Chef c in ViewBag.AllChefs)
+        {
+        <tr>
+            <td>@c.firstname @c.lastname</td>
+            <td>@c.GetAge()</td>
+            <td>@c.dishes.Count</td>
+        </tr>
+        }
+    }
+    </table>
+</div>

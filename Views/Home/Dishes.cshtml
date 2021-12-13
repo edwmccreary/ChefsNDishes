@@ -1,0 +1,37 @@
+@{
+    ViewData["Title"] = "View Dishes";
+}
+
+@model Dish
+
+<div class="d-flex justify-content-evenly">
+    <div class="col-6">
+        <a href="/">Chefs</a> | Dishes
+    </div>
+    <div class="col-6">
+        <a href="/new_dish">Add a Dish</a>
+    </div>
+</div>
+<div class="text-center">
+    <h1>Yum, take a look at our tasty dishes!</h1>
+    <br>
+    <table class="table table-striped">
+        <tr>
+            <th>Name</th>
+            <th>Chef</th>
+            <th>Tastiness</th>
+            <th>Calories</th>
+        </tr>
+    @{
+        foreach(Dish d in ViewBag.AllDishes)
+        {
+        <tr>
+            <td>@d.name</td>
+            <td>@d.chef.firstname @d.chef.lastname</td>
+            <td>@d.tastiness</td>
+            <td>@d.calories</td>
+        </tr>
+        }
+    }
+    </table>
+</div>
